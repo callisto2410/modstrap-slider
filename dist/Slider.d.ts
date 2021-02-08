@@ -18,8 +18,12 @@ export declare type SliderSetValue = number | (number | null)[];
  *
  * @see range
  * @see toggle
+ * @see getInstance
+ * @see on
+ * @see off
  * @see getValue
  * @see setValue
+ * @see update
  * @see reset
  * @see destroy
  *
@@ -52,17 +56,17 @@ export declare class Slider {
     /**
      * Creates a range slider.
      *
-     * @param sliders
+     * @param targets
      * @param properties
      */
-    static range(sliders: SlidersSelector, properties: SliderProperties): void;
+    static range(targets: SlidersSelector, properties: SliderProperties): void;
     /**
      * Creates a toggle slider.
      *
-     * @param sliders
+     * @param targets
      * @param properties
      */
-    static toggle(sliders: SlidersSelector, properties?: Partial<SliderProperties>): void;
+    static toggle(targets: SlidersSelector, properties?: Partial<SliderProperties>): void;
     /**
      * Sets event listeners for the toggle.
      *
@@ -81,57 +85,57 @@ export declare class Slider {
     /**
      * Returns an instance of the specified slider.
      *
-     * @param slider
+     * @param target
      * @private
      */
-    private static getInstance;
+    static getInstance(target: SliderSelector): SliderInstance | undefined;
     /**
      * Sets the specified event handler from the slider.
      *
-     * @param slider
+     * @param target
      * @param name
      * @param callback
      */
-    static on(slider: SliderSelector, name: string, callback: SliderCallback): void;
+    static on(target: SliderSelector, name: string, callback: SliderCallback): void;
     /**
      * Removes the specified event handler from the slider.
      *
-     * @param slider
+     * @param target
      * @param name
      */
-    static off(slider: SliderSelector, name: string): void;
+    static off(target: SliderSelector, name: string): void;
     /**
      * Returns the value of the specified slider.
      *
-     * @param slider
+     * @param target
      */
-    static getValue(slider: SliderSelector): SliderGetValue;
+    static getValue(target: SliderSelector): SliderGetValue;
     /**
      * Sets the specified value to the slider.
      *
-     * @param slider
+     * @param target
      * @param value
      */
-    static setValue(slider: SliderSelector, value: SliderSetValue): void;
+    static setValue(target: SliderSelector, value: SliderSetValue): void;
     /**
      * Updates the properties of the specified slider.
      *
-     * @param slider
+     * @param target
      * @param properties
      * @param fireSetEvent
      */
-    static update(slider: SliderSelector, properties: Partial<SliderProperties>, fireSetEvent?: boolean): void;
+    static update(target: SliderSelector, properties: Partial<SliderProperties>, fireSetEvent?: boolean): void;
     /**
      * Returns the slider to the default values.
      *
-     * @param slider
+     * @param target
      */
-    static reset(slider: SliderSelector): void;
+    static reset(target: SliderSelector): void;
     /**
      * Destroys the slider.
      *
-     * @param slider
+     * @param target
      */
-    static destroy(slider: SliderSelector): void;
+    static destroy(target: SliderSelector): void;
 }
 export default Slider;

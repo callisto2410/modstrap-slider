@@ -10,8 +10,12 @@ const nouislider_1 = __importDefault(require("nouislider"));
  *
  * @see range
  * @see toggle
+ * @see getInstance
+ * @see on
+ * @see off
  * @see getValue
  * @see setValue
+ * @see update
  * @see reset
  * @see destroy
  *
@@ -37,14 +41,14 @@ class Slider {
     /**
      * Creates a range slider.
      *
-     * @param sliders
+     * @param targets
      * @param properties
      */
-    static range(sliders, properties) {
-        if (typeof sliders === "string") {
-            sliders = document.querySelectorAll(sliders);
+    static range(targets, properties) {
+        if (typeof targets === "string") {
+            targets = document.querySelectorAll(targets);
         }
-        for (const slider of sliders) {
+        for (const slider of targets) {
             nouislider_1.default.create(slider, {
                 ...this._defaults,
                 ...properties,
@@ -54,14 +58,14 @@ class Slider {
     /**
      * Creates a toggle slider.
      *
-     * @param sliders
+     * @param targets
      * @param properties
      */
-    static toggle(sliders, properties = {}) {
-        if (typeof sliders === "string") {
-            sliders = document.querySelectorAll(sliders);
+    static toggle(targets, properties = {}) {
+        if (typeof targets === "string") {
+            targets = document.querySelectorAll(targets);
         }
-        for (const slider of sliders) {
+        for (const slider of targets) {
             const instance = nouislider_1.default.create(slider, {
                 ...this._defaults,
                 ...this._defaultsToggle,
@@ -105,83 +109,83 @@ class Slider {
     /**
      * Returns an instance of the specified slider.
      *
-     * @param slider
+     * @param target
      * @private
      */
-    static getInstance(slider) {
-        if (typeof slider === "string") {
-            const selector = document.querySelector(slider);
+    static getInstance(target) {
+        if (typeof target === "string") {
+            const selector = document.querySelector(target);
             return selector ? selector.noUiSlider : undefined;
         }
-        return slider ? slider.noUiSlider : undefined;
+        return target ? target.noUiSlider : undefined;
     }
     /**
      * Sets the specified event handler from the slider.
      *
-     * @param slider
+     * @param target
      * @param name
      * @param callback
      */
-    static on(slider, name, callback) {
-        const instance = this.getInstance(slider);
+    static on(target, name, callback) {
+        const instance = this.getInstance(target);
         instance && instance.on(name, callback);
     }
     /**
      * Removes the specified event handler from the slider.
      *
-     * @param slider
+     * @param target
      * @param name
      */
-    static off(slider, name) {
-        const instance = this.getInstance(slider);
+    static off(target, name) {
+        const instance = this.getInstance(target);
         instance && instance.off(name);
     }
     /**
      * Returns the value of the specified slider.
      *
-     * @param slider
+     * @param target
      */
-    static getValue(slider) {
-        const instance = this.getInstance(slider);
+    static getValue(target) {
+        const instance = this.getInstance(target);
         return instance ? instance.get() : undefined;
     }
     /**
      * Sets the specified value to the slider.
      *
-     * @param slider
+     * @param target
      * @param value
      */
-    static setValue(slider, value) {
-        const instance = this.getInstance(slider);
+    static setValue(target, value) {
+        const instance = this.getInstance(target);
         instance && instance.set(value);
     }
     /**
      * Updates the properties of the specified slider.
      *
-     * @param slider
+     * @param target
      * @param properties
      * @param fireSetEvent
      */
-    static update(slider, properties, fireSetEvent) {
-        const instance = this.getInstance(slider);
+    static update(target, properties, fireSetEvent) {
+        const instance = this.getInstance(target);
         instance && instance.updateOptions(properties, fireSetEvent);
     }
     /**
      * Returns the slider to the default values.
      *
-     * @param slider
+     * @param target
      */
-    static reset(slider) {
-        const instance = this.getInstance(slider);
+    static reset(target) {
+        const instance = this.getInstance(target);
         instance && instance.reset();
     }
     /**
      * Destroys the slider.
      *
-     * @param slider
+     * @param target
      */
-    static destroy(slider) {
-        const instance = this.getInstance(slider);
+    static destroy(target) {
+        const instance = this.getInstance(target);
         instance && instance.destroy();
     }
 }
