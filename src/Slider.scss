@@ -1,0 +1,132 @@
+@use "../node_modules/nouislider/distribute/nouislider.css";
+
+.noUi-target {
+  border: 0;
+  box-shadow: none;
+
+  .noUi-connects {
+    background: #eeeeee;
+    border-radius: 10px;
+
+    .noUi-connect {
+      background: #00b0ff;
+    }
+  }
+}
+
+/* Vertical. */
+.noUi-vertical {
+  width: 10px;
+  height: 100px;
+
+  .noUi-handle {
+    width: 24px;
+    height: 24px;
+    top: -12px;
+    right: -7px;
+  }
+}
+
+/* Horizontal. */
+.noUi-horizontal {
+  width: 100px;
+  height: 10px;
+
+  .noUi-handle {
+    width: 24px;
+    height: 24px;
+    top: -7px;
+    right: -12px;
+  }
+}
+
+/* Handle. */
+.noUi-handle {
+  outline: none;
+  border: 0;
+  border-radius: 100%;
+  background: #0081cb;
+  box-shadow: 0 0 4px rgba(#000, .2);
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  .noUi-touch-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background: #ffffff;
+    }
+  }
+}
+
+/* Toggle. */
+.slider-toggle {
+  .noUi-handle {
+    cursor: pointer;
+    transition: .3s background-color;
+  }
+
+  &.slider-toggle-off {
+    .noUi-handle {
+      background: #dddddd;
+    }
+  }
+}
+
+/* Pips. */
+.noUi-pips {
+  font: 12px "Arial";
+
+  .noUi-pips-horizontal {
+    height: 0;
+  }
+
+  .noUi-marker-horizontal {
+    &.noUi-marker-large {
+      height: 10px;
+    }
+  }
+
+  .noUi-value-horizontal {
+    padding-top: 15px;
+    transform: translate(-50%);
+  }
+
+  .noUi-marker-vertical {
+    &.noUi-marker-large {
+      width: 10px;
+    }
+  }
+
+  .noUi-value-vertical {
+    padding-left: 15px;
+  }
+}
+
+/* Tooltips. */
+.noUi-tooltip {
+  font: 12px "Arial";
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(#000, .2);
+  transition: .3s opacity;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.noUi-active {
+  .noUi-tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,102 @@
+@use "../../src/Slider";
+
+body {
+  margin: 0;
+  background: #ffffff;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+article {
+  color: #444444;
+  width: 100vw;
+  min-width: 320px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 960px;
+  margin: auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+  @media (max-width: 960px) {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Vertical. */
+.test-vertical {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > .slider {
+    height: 400px;
+    flex-shrink: 0;
+    margin: 0 60px 0 0;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin: 0 0 30px;
+  }
+}
+
+/* Horizontal. */
+.test-horizontal {
+  width: calc(100% - 250px);
+
+  & > .slider {
+    width: 100%;
+    margin: 0 0 60px 0;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+/* Toggle. */
+.test-toggle {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 600px) {
+    height: 60px;
+  }
+}
+
+/* Vertical toggle. */
+.vertical-toggle {
+  display: flex;
+  align-items: center;
+
+  & > .toggle {
+    height: 24px;
+    margin: 25px;
+  }
+}
+
+/* Horizontal toggle. */
+.horizontal-toggle {
+  display: flex;
+  align-items: center;
+
+  & > .toggle {
+    width: 24px;
+    margin: 25px;
+  }
+}
